@@ -1,158 +1,389 @@
-<!DOCTYPE html>
+---
+layout: null
+title: "Ashish Mishra – Portfolio"
+---
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashish Mishra – Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Ashish Mishra — Applied Data Scientist" />
+  <title>Ashish Mishra — Portfolio</title>
+
+  <!-- Google / Plausible Analytics (replace IDs) -->
+  <!-- Google Analytics: replace 'G-XXXXXXXXXX' with yours -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- Plausible (optional): replace with your domain -->
+  <!--<script async defer data-domain="yourdomain.com" src="https://plausible.io/js/plausible.js"></script>-->
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #222;
-      line-height: 1.6;
+    /* Basic reset */
+    :root{
+      --bg: #eef2f6;
+      --panel: #f7fbff;
+      --text: #0b1220;
+      --muted: #6b7280;
+      --accent: #6c8ef5;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 12px 12px 24px rgba(172,184,199,0.35), -8px -8px 24px rgba(255,255,255,0.7);
+      --soft-shadow: 8px 8px 20px rgba(172,184,199,0.25);
+      --radius: 14px;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
+    [data-theme="dark"]{
+      --bg: #0b1020;
+      --panel: #0f1724;
+      --text: #e6eef8;
+      --muted: #9aa6bf;
+      --accent: #7aa2ff;
+      --glass: rgba(18,22,33,0.5);
+      --shadow: 8px 8px 18px rgba(0,0,0,0.6), -6px -6px 14px rgba(30,36,50,0.6);
+      --soft-shadow: 6px 6px 14px rgba(0,0,0,0.45);
+      --radius: 12px;
     }
-    h1, h2 {
-      font-weight: 600;
-      margin-bottom: 10px;
+
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(108,142,245,0.06), transparent 8%), var(--bg);
+      color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      transition: background .25s ease, color .25s ease;
+      padding:32px;
     }
-    h1 { font-size: 2.4rem; }
-    h2 { margin-top: 40px; font-size: 1.5rem; border-bottom: 2px solid #ddd; padding-bottom: 5px; }
-    .section { margin-bottom: 25px; }
-    .item { margin-bottom: 15px; }
-    ul { margin: 5px 0 0 20px; }
-    a { color: #0066cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .header-links a { margin-right: 15px; }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: center;
+
+    /* Layout */
+    .wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start;}
+
+    /* Sidebar */
+    .sidebar{
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);backdrop-filter: blur(8px);
+      position:sticky; top:28px; height:fit-content;
     }
-    .location {
-      margin-top: 5px;
-      font-size: 0.95rem;
-      color: #555;
+    [data-theme="dark"] .sidebar{background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));}
+
+    .avatar{
+      width:84px;height:84px;border-radius:18px;display:block;object-fit:cover;margin-bottom:12px;box-shadow:var(--soft-shadow);
     }
-    .summary-text {
-      font-size: 1.05rem;
-      color: #333;
+    .name{font-size:1.25rem;font-weight:700;margin:0 0 6px;}
+    .title{font-size:0.95rem;color:var(--muted);margin:0 0 12px}
+    .contact{font-size:0.92rem;color:var(--muted);line-height:1.6}
+
+    .skillpill{display:inline-block;background:var(--panel);padding:6px 10px;border-radius:999px;margin:6px 6px 0 0;font-size:0.85rem;color:var(--muted);box-shadow:var(--soft-shadow)}
+
+    /* Main */
+    .main{ }
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .nav{display:flex;gap:12px}
+    .nav a{font-weight:600;color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    .nav a:hover{background:var(--panel);color:var(--text)}
+
+    /* Cards grid */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{
+      background:var(--panel);border-radius:14px;padding:18px;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease;
     }
+    .card:hover{transform:translateY(-6px)}
+    .card h3{margin:0 0 10px}
+    .meta{color:var(--muted);font-size:0.9rem;margin-bottom:8px}
+
+    /* Projects */
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));box-shadow:var(--soft-shadow);display:flex;flex-direction:column;min-height:120px}
+    .project h4{margin:0 0 8px;font-size:1rem}
+    .project p{margin:0;color:var(--muted);font-size:0.9rem}
+    .tags{margin-top:auto}
+    .tag{display:inline-block;background:transparent;border:1px solid rgba(0,0,0,0.06);padding:6px 8px;border-radius:999px;margin-right:8px;font-size:0.8rem;color:var(--muted)}
+
+    /* Filters */
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .filter-btn{padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);background:transparent;cursor:pointer;color:var(--muted)}
+    .filter-btn.active{background:var(--accent);color:white;border-color:transparent}
+
+    /* Skill bars */
+    .skill{margin-bottom:10px}
+    .skill .label{font-size:0.9rem;margin-bottom:6px}
+    .bar{height:10px;background:linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#3bb0ff);width:0%;transition:width 900ms cubic-bezier(.2,.9,.3,1)}
+
+    /* Certifications list */
+    .certs{display:flex;flex-direction:column;gap:8px}
+    .cert{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:var(--glass);}
+    .cert a{color:var(--accent);text-decoration:none}
+
+    /* Responsive */
+    @media (max-width:950px){
+      .wrap{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr}
+      .project-grid{grid-template-columns:1fr}
+    }
+
+    /* Small touches */
+    .muted{color:var(--muted)}
+    .cta{background:var(--accent);color:#fff;padding:8px 12px;border-radius:10px;text-decoration:none}
+
+    /* Accessibility: focus */
+    a:focus, button:focus{outline:3px solid rgba(99,102,241,0.18);outline-offset:2px}
+
+    /* Animations */
+    .fade-in{animation:fadeIn .6s cubic-bezier(.2,.9,.3,1) both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>Ashish Mishra</h1>
-      <div class="header-links">
-        <a href="mailto:ashish.mishra231@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/ashishdastro/">LinkedIn</a>
-        <a href="https://github.com/ashishdastro">GitHub</a>
-        <a href="https://ashishdastro.github.io/">Portfolio</a>
-      </div>
-    </div>
-    <p class="location">Peewaukee, Wisconsin, USA · +1-262-327-4146</p>
+<body data-theme="light">
 
-    <div class="section">
-      <h2>Summary</h2>
-      <p class="summary-text">Applied Data Scientist experienced in building production-ready ML systems across e‑commerce, wearable devices, and scientific domains. Skilled in large‑scale analytics (BigQuery, Looker), entity resolution (Neo4j), forecasting, attribution modeling, and embedded ML for edge devices. Ph.D. in Physics with specialization in statistical modeling.</p>
-    </div>
-
-    <div class="section">
-      <h2>Experience</h2>
-
-      <div class="item">
-        <strong>Applied Data Scientist III – WebstaurantStore LLC (2023–Present)</strong>
-        <ul>
-          <li>Designed scalable BigQuery + Looker workflows for organization-wide analytics.</li>
-          <li>Developed Customer Graph reducing duplicate profiles by 12% using Neo4j + BigQuery.</li>
-          <li>Delivered forecasting dashboards improving category planning accuracy and visibility.</li>
-          <li>Built Multi‑Touch Attribution model integrating sessions, impressions, and order pipelines.</li>
-        </ul>
+  <div class="wrap">
+    <!-- Sidebar -->
+    <aside class="sidebar fade-in">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/20759328?s=200&v=4" alt="Ashish Mishra">
+      <div class="name">Ashish Mishra</div>
+      <div class="title">Applied Data Scientist — ML at edge, graphs, forecasting</div>
+      <div class="contact">
+        Peewaukee, Wisconsin, USA<br>
+        <a href="tel:+12623274146">+1-262-327-4146</a><br>
+        <a href="mailto:ashish.mishra231@gmail.com">ashish.mishra231@gmail.com</a>
       </div>
 
-      <div class="item">
-        <strong>Senior Machine Learning Engineer – Wearable Technologies Inc. (2022–2023)</strong>
-        <ul>
-          <li>Developed ultra‑light deep learning models (>90% accuracy under 100 KB) for edge devices.</li>
-          <li>Achieved F1‑scores of 0.85 (voice) and 0.94 (fall detection) on-device.</li>
-          <li>Deployed quantized + pruned inference pipelines enabling real‑time embedded ML.</li>
-        </ul>
+      <hr style="margin:14px 0;opacity:0.06">
+
+      <div>
+        <strong>Top skills</strong>
+        <div style="margin-top:8px">
+          <span class="skillpill">Python</span>
+          <span class="skillpill">BigQuery</span>
+          <span class="skillpill">Neo4j</span>
+          <span class="skillpill">Embedded ML</span>
+        </div>
       </div>
 
-      <div class="item">
-        <strong>Scientist – ISRO (2014–2016)</strong>
-        <ul>
-          <li>Applied ML and remote sensing methods to accelerate satellite image analysis workflows.</li>
-        </ul>
+      <hr style="margin:14px 0;opacity:0.06">
+
+      <div>
+        <strong>Certifications</strong>
+        <div class="certs" style="margin-top:10px">
+          <div class="cert"><div>Machine Learning Specialization — Coursera</div><div class="muted">Sep 2022</div></div>
+          <div class="cert"><div>Practical Data Science on AWS — Coursera</div><div class="muted">Sep 2022</div></div>
+          <div class="cert"><div>TensorFlow Developer — DeepLearning.AI</div><div class="muted">Mar 2022</div></div>
+          <div class="cert"><div>SQL (Basic) — HackerRank</div><div class="muted">Apr 2022</div></div>
+        </div>
       </div>
-    </div>
 
-    <div class="section">
-      <h2>Education</h2>
-      <div class="item"><strong>Ph.D., Physics (Statistical Modeling)</strong> – University of Toledo (2017–2022)</div>
-      <div class="item"><strong>M.S., Computer Information Systems</strong> – Indiana Wesleyan University (2025–Present)</div>
-      <div class="item"><strong>B.Tech., Physical Sciences</strong> – IIST (2010–2014)</div>
-    </div>
+      <hr style="margin:14px 0;opacity:0.06">
 
-    <div class="section">
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Customer Graph:</strong> Entity resolution using BigQuery + Neo4j, reducing duplicates by 12%.</li>
-        <li><strong>Trending Categories Forecasting:</strong> Full analytics pipeline integrating sales + search data.</li>
-        <li><strong>Multi‑Touch Attribution Model:</strong> Cross‑channel attribution combining session and order data.</li>
-        <li><strong>Kaggle – Calorie Prediction:</strong> Top 27% using engineered features + XGBoost/LightGBM.</li>
-        <li><strong>Kaggle – Sheep Breed Classification:</strong> EfficientNetB0 + data augmentation.</li>
-      </ul>
-    </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="cta" href="https://github.com/ashishdastro">GitHub</a>
+        <a class="cta" href="https://www.linkedin.com/in/ashishdastro/">LinkedIn</a>
+      </div>
 
-    <div class="section">
-      <h2>Publications & Patents</h2>
-      <ul>
-        <li><a href="https://patentcenter.uspto.gov/applications/17517488">Smart Wearable Personal Safety Device (Patent)</a></li>
-        <li><a href="https://link.springer.com/article/10.1007/s41324-017-0132-4">Flood Response via Remote Sensing (2017)</a></li>
-        <li><a href="https://arxiv.org/abs/2012.08768">MPOL: Optical Imaging Polarimeter (2020)</a></li>
-        <li><a href="https://academic.oup.com/mnras/article/508/2/2002/6375802">Be Star HD 6226 Study (2021)</a></li>
-        <li><a href="https://ui.adsabs.harvard.edu/abs/2014ATel.6054....1G/abstract">OJ287 Blazar Polarization (2014)</a></li>
-      </ul>
-    </div>
+      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+        <small class="muted">Theme</small>
+        <label style="display:inline-flex;align-items:center;gap:8px">
+          <input id="themeToggle" type="checkbox" aria-label="Toggle dark mode" />
+          <span class="muted">Dark</span>
+        </label>
+      </div>
 
-    <div class="section">
-      <h2>Skills</h2>
-      <p><strong>Languages:</strong> Python, SQL/Cypher, C, C++</p>
-      <p><strong>Data Science:</strong> Machine Learning, Deep Learning, Data Mining, Statistical Modeling</p>
-      <p><strong>Libraries:</strong> TensorFlow, PyTorch, scikit‑learn, Pandas, NumPy</p>
-      <p><strong>Tools:</strong> BigQuery, Looker Studio, Neo4j, Airflow</p>
-      <p><strong>Cloud:</strong> GCP, AWS</p>
-    </div>
+    </aside>
 
-    <div class="section">
-      <h2>Certifications</h2>
-      <ul>
-        <li><strong>Machine Learning Specialization</strong> – Coursera (Sep 2022) — Credential ID: 2HVXEA6WNXH8</li>
-        <li><strong>Practical Data Science on the AWS Cloud</strong> – Coursera (Sep 2022) — Credential ID: 2VY4CAP9UHJE</li>
-        <li><strong>SQL (Basic)</strong> – HackerRank (Apr 2022) — Credential ID: 874d16b6e68c</li>
-        <li><strong>TensorFlow Developer Specialization</strong> – DeepLearning.AI / Coursera (Mar 2022) — Credential ID: HCK2M9QCLV8G</li>
-        <li><strong>Intro to Deep Learning</strong> – Kaggle (Mar 2022)</li>
-        <li><strong>NLP in TensorFlow</strong> – Coursera (Mar 2022) — Credential ID: S3377WZ6F392</li>
-        <li><strong>Introduction to TensorFlow for AI, ML & DL</strong> – Coursera (Jan 2022) — Credential ID: KF5575CM773S</li>
-        <li><strong>Intro to Machine Learning</strong> – Kaggle (Jan 2021)</li>
-        <li><strong>Pandas</strong> – Kaggle (Jan 2021)</li>
-        <li><strong>Data Science: Productivity Tools</strong> – edX (Jan 2021) — Credential ID: aa03d367f88a423b93b440b0cb06b9e5</li>
-        <li><strong>Data Science: Inference and Modeling</strong> – edX (Dec 2020) — Credential ID: 234dbf8f5fd44b93b9b21696554d8201</li>
-        <li><strong>Data Science: Probability</strong> – edX (Dec 2020) — Credential ID: b024ec9610c045fcb9d47cca50038d41</li>
-        <li><strong>Data Science: R Basics</strong> – edX (Dec 2020) — Credential ID: ccd138583141457c89d963939cd5a8f8</li>
-        <li><strong>Data Science: Visualization</strong> – edX (Dec 2020) — Credential ID: cca4bf39539a429f8d56df062fd3e823</li>
-      </ul>
-    </div>
+    <!-- Main -->
+    <main class="main">
+      <div class="topbar fade-in">
+        <div>
+          <h2 style="margin:0">Portfolio</h2>
+          <div class="muted">Applied Data Science, ML Engineer — Ph.D. in Physics</div>
+        </div>
+        <nav class="nav">
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
 
+      <div class="grid">
+        <div class="card fade-in">
+          <h3>About</h3>
+          <div class="meta">Applied Data Scientist with production ML experience in e-commerce, wearables, and remote sensing. Strong background in statistical modeling and edge ML.</div>
+          <p class="muted">I build data products end-to-end: data ingestion → feature pipelines → model training → deployment & monitoring. Favorite tools: BigQuery, Neo4j, TensorFlow, PyTorch, and GCP.</p>
+        </div>
+
+        <div class="card fade-in">
+          <h3>Contact & Links</h3>
+          <div class="meta">Get in touch or view my work</div>
+          <p class="muted"><a href="mailto:ashish.mishra231@gmail.com">ashish.mishra231@gmail.com</a> · <a href="https://github.com/ashishdastro">github.com/ashishdastro</a> · <a href="https://www.linkedin.com/in/ashishdastro/">linkedin.com/in/ashishdastro</a></p>
+        </div>
+
+        <div class="card fade-in" id="experience">
+          <h3>Experience</h3>
+          <div class="meta">Selected roles</div>
+          <p><strong>Applied Data Scientist III</strong> — WebstaurantStore LLC (2023–Present)<br>
+          Designed BigQuery + Looker analytics, built a Customer Graph (12% duplicate reduction), and deployed forecasting dashboards.</p>
+
+          <p><strong>Senior ML Engineer</strong> — Wearable Technologies Inc. (2022–2023)<br>
+          Built compact DL models &lt;100KB (F1 0.85 voice, 0.94 fall) and deployed quantized models for real-time inference.</p>
+
+          <p><strong>Scientist</strong> — ISRO (2014–2016)<br>
+          Applied remote sensing & ML to accelerate image analysis pipelines.</p>
+        </div>
+
+        <div class="card fade-in" id="projects">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h3 style="margin:0">Projects</h3>
+            <div>
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="ml">ML</button>
+              <button class="filter-btn" data-filter="prod">Prod</button>
+              <button class="filter-btn" data-filter="kaggle">Kaggle</button>
+            </div>
+          </div>
+          <div class="meta">Click filters to narrow projects</div>
+
+          <div class="project-grid" style="margin-top:12px">
+            <div class="project" data-tags="ml prod">
+              <h4>Customer Graph</h4>
+              <p>Entity resolution pipeline using BigQuery + Neo4j reducing duplicate customer profiles by 12%.</p>
+              <div class="tags"><span class="tag">BigQuery</span><span class="tag">Neo4j</span></div>
+            </div>
+
+            <div class="project" data-tags="prod">
+              <h4>Trending Categories Forecasting</h4>
+              <p>Sales + search aggregation pipeline and Looker dashboards for category planning.</p>
+              <div class="tags"><span class="tag">Forecasting</span><span class="tag">Looker</span></div>
+            </div>
+
+            <div class="project" data-tags="ml kaggle">
+              <h4>Calorie Prediction (Kaggle)</h4>
+              <p>Top 27% using engineered features and XGBoost / LightGBM.</p>
+              <div class="tags"><span class="tag">XGBoost</span><span class="tag">Feature Eng</span></div>
+            </div>
+
+            <div class="project" data-tags="ml kaggle">
+              <h4>Sheep Breed Classification</h4>
+              <p>EfficientNetB0 with augmentation for resource-efficient image classification.</p>
+              <div class="tags"><span class="tag">EfficientNet</span><span class="tag">CV</span></div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card fade-in" id="publications">
+          <h3>Publications & Patents</h3>
+          <div class="meta">Selected peer-reviewed work & patents</div>
+          <ul>
+            <li><a href="https://patentcenter.uspto.gov/applications/17517488">Smart Wearable Personal Safety Device (Patent)</a></li>
+            <li><a href="https://link.springer.com/article/10.1007/s41324-017-0132-4">Flood Response via Remote Sensing (2017)</a></li>
+            <li><a href="https://arxiv.org/abs/2012.08768">MPOL: Optical Imaging Polarimeter (2020)</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Skill + other cards -->
+      <div style="margin-top:18px" class="grid">
+        <div class="card fade-in">
+          <h3>Technical Skills</h3>
+          <div class="meta">Languages & libraries</div>
+          <div style="margin-top:12px">
+            <div class="skill"><div class="label">Python</div><div class="bar"><i style="width:92%"></i></div></div>
+            <div class="skill"><div class="label">SQL / BigQuery</div><div class="bar"><i style="width:88%"></i></div></div>
+            <div class="skill"><div class="label">TensorFlow / PyTorch</div><div class="bar"><i style="width:84%"></i></div></div>
+            <div class="skill"><div class="label">Neo4j / Graphs</div><div class="bar"><i style="width:76%"></i></div></div>
+          </div>
+        </div>
+
+        <div class="card fade-in">
+          <h3>Licenses & Certifications</h3>
+          <div class="meta">Complete list</div>
+          <ul style="margin-top:12px">
+            <li>Machine Learning Specialization – Coursera (Sep 2022) — Credential ID: 2HVXEA6WNXH8</li>
+            <li>Practical Data Science on the AWS Cloud – Coursera (Sep 2022) — Credential ID: 2VY4CAP9UHJE</li>
+            <li>SQL (Basic) – HackerRank (Apr 2022) — Credential ID: 874d16b6e68c</li>
+            <li>TensorFlow Developer Specialization – DeepLearning.AI / Coursera (Mar 2022) — Credential ID: HCK2M9QCLV8G</li>
+            <li>Intro to Deep Learning – Kaggle (Mar 2022)</li>
+            <li>Natural Language Processing in TensorFlow – Coursera (Mar 2022) — Credential ID: S3377WZ6F392</li>
+            <li>Introduction to TensorFlow for AI, ML & DL – Coursera (Jan 2022) — Credential ID: KF5575CM773S</li>
+            <li>Intro to Machine Learning – Kaggle (Jan 2021)</li>
+            <li>Pandas – Kaggle (Jan 2021)</li>
+            <li>Data Science: Productivity Tools – edX (Jan 2021) — Credential ID: aa03d367f88a423b93b440b0cb06b9e5</li>
+            <li>Data Science: Inference and Modeling – edX (Dec 2020) — Credential ID: 234dbf8f5fd44b93b9b21696554d8201</li>
+            <li>Data Science: Probability – edX (Dec 2020) — Credential ID: b024ec9610c045fcb9d47cca50038d41</li>
+            <li>Data Science: R Basics – edX (Dec 2020) — Credential ID: ccd138583141457c89d963939cd5a8f8</li>
+            <li>Data Science: Visualization – edX (Dec 2020) — Credential ID: cca4bf39539a429f8d56df062fd3e823</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="height:24px"></div>
+
+      <div id="contact" class="muted">© "Ashish Mishra" — Built with a clean neumorphic theme • View source on <a href="https://github.com/ashishdastro">GitHub</a></div>
+
+    </main>
   </div>
+
+  <script>
+    // Dark mode toggle + persist
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('site-theme');
+    if(saved === 'dark'){
+      document.body.setAttribute('data-theme','dark');
+      toggle.checked = true;
+    }
+    toggle.addEventListener('change', e => {
+      if(e.target.checked){
+        document.body.setAttribute('data-theme','dark');
+        localStorage.setItem('site-theme','dark');
+      } else {
+        document.body.setAttribute('data-theme','light');
+        localStorage.setItem('site-theme','light');
+      }
+    });
+
+    // Project filters
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project');
+    filterBtns.forEach(b => b.addEventListener('click', ()=>{
+      filterBtns.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      const f = b.getAttribute('data-filter');
+      projects.forEach(p=>{
+        if(f==='all') { p.style.display='flex'; return }
+        const tags = p.getAttribute('data-tags') || '';
+        p.style.display = tags.includes(f) ? 'flex' : 'none';
+      })
+    }));
+
+    // Animate skill bars when visible
+    const bars = document.querySelectorAll('.bar > i');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(ent => {
+        if(ent.isIntersecting){
+          ent.target.style.width = ent.target.getAttribute('style').match(/width:\s*(\d+%)/)[1];
+        }
+      })
+    }, {threshold:0.3});
+    bars.forEach(b=>{
+      // already set width in inline style; start at 0
+      const w = b.style.width || '0%'; b.style.width='0%';
+      io.observe(b);
+    });
+
+    // Smooth nav scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.startsWith('#')){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    });
+
+  </script>
+
 </body>
 </html>
