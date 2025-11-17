@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Resume - Start Bootstrap Theme</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
+      background: #f7f7f7;
       color: #222;
       line-height: 1.6;
     }
@@ -30,30 +22,47 @@
       font-weight: 600;
       margin-bottom: 10px;
     }
-    h1 { font-size: 2.2rem; }
-    h2 { margin-top: 40px; }
+    h1 { font-size: 2.4rem; }
+    h2 { margin-top: 40px; font-size: 1.5rem; border-bottom: 2px solid #ddd; padding-bottom: 5px; }
     .section { margin-bottom: 25px; }
     .item { margin-bottom: 15px; }
     ul { margin: 5px 0 0 20px; }
-    a { color: #0077cc; text-decoration: none; }
+    a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .header-links a { margin-right: 15px; }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .location {
+      margin-top: 5px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .summary-text {
+      font-size: 1.05rem;
+      color: #333;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Ashish Mishra</h1>
-    <div class="header-links">
-      <a href="mailto:ashish.mishra231@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/ashishdastro/">LinkedIn</a>
-      <a href="https://github.com/ashishdastro">GitHub</a>
-      <a href="https://ashishdastro.github.io/">Portfolio</a>
+    <div class="header">
+      <h1>Ashish Mishra</h1>
+      <div class="header-links">
+        <a href="mailto:ashish.mishra231@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/ashishdastro/">LinkedIn</a>
+        <a href="https://github.com/ashishdastro">GitHub</a>
+        <a href="https://ashishdastro.github.io/">Portfolio</a>
+      </div>
     </div>
-    <p>Peewaukee, Wisconsin, USA · +1-262-327-4146</p>
+    <p class="location">Peewaukee, Wisconsin, USA · +1-262-327-4146</p>
 
     <div class="section">
       <h2>Summary</h2>
-      <p>Applied Data Scientist with experience in data mining, machine learning, deep learning, statistical modeling, and building production-ready pipelines across e-commerce, wearable devices, and scientific domains. Proven expertise in BigQuery, Neo4j, cloud platforms, and embedded ML for edge devices. Ph.D. in Physics with specialization in statistical modeling.</p>
+      <p class="summary-text">Applied Data Scientist experienced in building production-ready ML systems across e‑commerce, wearable devices, and scientific domains. Skilled in large‑scale analytics (BigQuery, Looker), entity resolution (Neo4j), forecasting, attribution modeling, and embedded ML for edge devices. Ph.D. in Physics with specialization in statistical modeling.</p>
     </div>
 
     <div class="section">
@@ -62,63 +71,63 @@
       <div class="item">
         <strong>Applied Data Scientist III – WebstaurantStore LLC (2023–Present)</strong>
         <ul>
-          <li>Large‑scale data mining & analytics using BigQuery + Looker.</li>
-          <li>Developed Customer Graph reducing duplicate customers by 12%.</li>
-          <li>Built trending category forecasting dashboards.</li>
-          <li>Implemented Multi‑Touch Attribution model using SQL + statistics.</li>
+          <li>Designed scalable BigQuery + Looker workflows for organization-wide analytics.</li>
+          <li>Developed Customer Graph reducing duplicate profiles by 12% using Neo4j + BigQuery.</li>
+          <li>Delivered forecasting dashboards improving category planning accuracy and visibility.</li>
+          <li>Built Multi‑Touch Attribution model integrating sessions, impressions, and order pipelines.</li>
         </ul>
       </div>
 
       <div class="item">
         <strong>Senior Machine Learning Engineer – Wearable Technologies Inc. (2022–2023)</strong>
         <ul>
-          <li>Built deep learning models &gt;90% accuracy under 100 KB for edge devices.</li>
-          <li>Achieved F1‑scores of 0.85 (voice) and 0.94 (fall detection).</li>
-          <li>Deployed quantized/pruned ML models for real‑time embedded inference.</li>
+          <li>Developed ultra‑light deep learning models (>90% accuracy under 100 KB) for edge devices.</li>
+          <li>Achieved F1‑scores of 0.85 (voice) and 0.94 (fall detection) on-device.</li>
+          <li>Deployed quantized + pruned inference pipelines enabling real‑time embedded ML.</li>
         </ul>
       </div>
 
       <div class="item">
         <strong>Scientist – ISRO (2014–2016)</strong>
         <ul>
-          <li>Accelerated satellite image analysis using ML and remote sensing.</li>
+          <li>Applied ML and remote sensing methods to accelerate satellite image analysis workflows.</li>
         </ul>
       </div>
     </div>
 
     <div class="section">
       <h2>Education</h2>
-      <div class="item"><strong>M.S., Computer Information Systems</strong> – Indiana Wesleyan University (2025–Present)</div>
       <div class="item"><strong>Ph.D., Physics (Statistical Modeling)</strong> – University of Toledo (2017–2022)</div>
+      <div class="item"><strong>M.S., Computer Information Systems</strong> – Indiana Wesleyan University (2025–Present)</div>
       <div class="item"><strong>B.Tech., Physical Sciences</strong> – IIST (2010–2014)</div>
     </div>
 
     <div class="section">
       <h2>Projects</h2>
       <ul>
-        <li><strong>Customer Graph:</strong> BigQuery + Neo4j entity resolution (12% reduction in customer duplicates).</li>
-        <li><strong>Trending Categories Forecasting:</strong> Aggregated sales + search data pipeline.</li>
-        <li><strong>Multi‑Touch Attribution Model:</strong> Pipeline combining sessions, impressions, orders.</li>
-        <li><strong>Calorie Prediction (Kaggle):</strong> Top 27% using engineered features + XGBoost/LightGBM.</li>
-        <li><strong>Sheep Breed Classification (Kaggle):</strong> EfficientNetB0 + augmentation.</li>
+        <li><strong>Customer Graph:</strong> Entity resolution using BigQuery + Neo4j, reducing duplicates by 12%.</li>
+        <li><strong>Trending Categories Forecasting:</strong> Full analytics pipeline integrating sales + search data.</li>
+        <li><strong>Multi‑Touch Attribution Model:</strong> Cross‑channel attribution combining session and order data.</li>
+        <li><strong>Kaggle – Calorie Prediction:</strong> Top 27% using engineered features + XGBoost/LightGBM.</li>
+        <li><strong>Kaggle – Sheep Breed Classification:</strong> EfficientNetB0 + data augmentation.</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>Publications & Patents</h2>
       <ul>
-        <li><a href="https://patentcenter.uspto.gov/applications/17517488">Smart Wearable Personal Safety Devices</a></li>
-        <li><a href="https://link.springer.com/article/10.1007/s41324-017-0132-4">Flood Response via Remote Sensing</a></li>
-        <li><a href="https://arxiv.org/abs/2012.08768">MPOL: Optical Imaging Polarimeter</a></li>
-        <li><a href="https://academic.oup.com/mnras/article/508/2/2002/6375802?searchresult=1">Be Star HD 6226 Study</a></li>
-        <li><a href="https://ui.adsabs.harvard.edu/abs/2014ATel.6054....1G/abstract">OJ287 Blazar Polarization</a></li>
+        <li><a href="https://patentcenter.uspto.gov/applications/17517488">Smart Wearable Personal Safety Device (Patent)</a></li>
+        <li><a href="https://link.springer.com/article/10.1007/s41324-017-0132-4">Flood Response via Remote Sensing (2017)</a></li>
+        <li><a href="https://arxiv.org/abs/2012.08768">MPOL: Optical Imaging Polarimeter (2020)</a></li>
+        <li><a href="https://academic.oup.com/mnras/article/508/2/2002/6375802">Be Star HD 6226 Study (2021)</a></li>
+        <li><a href="https://ui.adsabs.harvard.edu/abs/2014ATel.6054....1G/abstract">OJ287 Blazar Polarization (2014)</a></li>
       </ul>
     </div>
 
     <div class="section">
       <h2>Skills</h2>
       <p><strong>Languages:</strong> Python, SQL/Cypher, C, C++</p>
-      <p><strong>Data Science:</strong> Data Mining, ML, DL, Statistical Modeling</p>
+      <p><strong>Data Science:</strong> Machine Learning, Deep Learning, Data Mining, Statistical Modeling</p>
       <p><strong>Libraries:</strong> TensorFlow, PyTorch, scikit‑learn, Pandas, NumPy</p>
       <p><strong>Tools:</strong> BigQuery, Looker Studio, Neo4j, Airflow</p>
       <p><strong>Cloud:</strong> GCP, AWS</p>
@@ -127,12 +136,20 @@
     <div class="section">
       <h2>Certifications</h2>
       <ul>
-        <li>Machine Learning Specialization – Coursera</li>
-        <li>Practical Data Science on AWS – Coursera</li>
-        <li>SQL (Basic) – HackerRank</li>
-        <li>TensorFlow Developer – DeepLearning.AI</li>
-        <li>Deep Learning & NLP – Coursera</li>
-        <li>ML, Pandas & DS Courses – Kaggle, edX</li>
+        <li><strong>Machine Learning Specialization</strong> – Coursera (Sep 2022) — Credential ID: 2HVXEA6WNXH8</li>
+        <li><strong>Practical Data Science on the AWS Cloud</strong> – Coursera (Sep 2022) — Credential ID: 2VY4CAP9UHJE</li>
+        <li><strong>SQL (Basic)</strong> – HackerRank (Apr 2022) — Credential ID: 874d16b6e68c</li>
+        <li><strong>TensorFlow Developer Specialization</strong> – DeepLearning.AI / Coursera (Mar 2022) — Credential ID: HCK2M9QCLV8G</li>
+        <li><strong>Intro to Deep Learning</strong> – Kaggle (Mar 2022)</li>
+        <li><strong>NLP in TensorFlow</strong> – Coursera (Mar 2022) — Credential ID: S3377WZ6F392</li>
+        <li><strong>Introduction to TensorFlow for AI, ML & DL</strong> – Coursera (Jan 2022) — Credential ID: KF5575CM773S</li>
+        <li><strong>Intro to Machine Learning</strong> – Kaggle (Jan 2021)</li>
+        <li><strong>Pandas</strong> – Kaggle (Jan 2021)</li>
+        <li><strong>Data Science: Productivity Tools</strong> – edX (Jan 2021) — Credential ID: aa03d367f88a423b93b440b0cb06b9e5</li>
+        <li><strong>Data Science: Inference and Modeling</strong> – edX (Dec 2020) — Credential ID: 234dbf8f5fd44b93b9b21696554d8201</li>
+        <li><strong>Data Science: Probability</strong> – edX (Dec 2020) — Credential ID: b024ec9610c045fcb9d47cca50038d41</li>
+        <li><strong>Data Science: R Basics</strong> – edX (Dec 2020) — Credential ID: ccd138583141457c89d963939cd5a8f8</li>
+        <li><strong>Data Science: Visualization</strong> – edX (Dec 2020) — Credential ID: cca4bf39539a429f8d56df062fd3e823</li>
       </ul>
     </div>
 
